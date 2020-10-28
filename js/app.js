@@ -1,4 +1,4 @@
-var app = new Vue({
+const app = new Vue({
     el: '#main',
     data: {
         totalSurprises: 70,
@@ -14,18 +14,17 @@ var app = new Vue({
     },
     methods: {
         showPrice: function(event) {
-            var button = event.target;
+            if (this.prices.length) {
+                const button = event.target;
 
-            if (button.classList.contains('price-btn')) {
-                button.classList.remove('price-btn');
+                if (button.classList.contains('price-btn')) {
+                    button.classList.remove('price-btn');
 
-                var value = 0;
-                if (this.prices.length) {
-                    var rand = Math.random();
-                    value = Math.round(rand * (this.prices.length - 1) + 1);
+                    const rand = Math.random();
+                    const value = Math.round(rand * (this.prices.length - 1) + 1);
+
+                    button.textContent = value;
                 }
-
-                button.textContent = value;
             }
             return false;
         },
