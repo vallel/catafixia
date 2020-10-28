@@ -1,0 +1,143 @@
+body {
+    background-color: #000;
+}
+h1 {
+    font-family: 'Abel', sans-serif;
+}
+
+#main {
+    clear: both;
+}
+
+.prices {
+    float: left;
+    margin: 0 10px;
+    padding: 10px;
+    width: 220px;
+    height: 659px;
+    background-color: #4b2696;
+    color: #ddd;
+    font-size: 18px;
+    font-family: 'Abel', sans-serif;
+}
+.prices h1 {
+    font-family: 'Concert One', cursive;
+    text-align: center;
+    margin: 0;
+}
+.prices-list {
+    padding-left: 30px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.prices-list li {
+    width: 90%;
+}
+.delete-price-btn {
+    display: none;
+    float: right;
+    border-radius: 50%;
+    background-color: #a52a2a;
+    border-color: #a52a2a;
+    border-style: solid;
+    cursor: pointer;
+    color: #ddd;
+    width: 21px;
+    height: 21px;
+    font-size: 10px;
+}
+.prices-list li:hover .delete-price-btn {
+    display: block;
+}
+.add-price {
+    padding: 10px;
+}
+.add-price-link, .add-price-link:visited {
+    color: #ddd;
+}
+.add-price-link:hover {
+    color: #1199ff;
+}
+.surprises {
+    width: 970px;
+    height: 679px;
+    background-color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #efefef;
+    font-size: 26px;
+    float: left;
+}
+.surprise-btn {
+    width: 85px;
+    height: 85px;
+    margin: 6px;
+    float: left;
+    text-align: center;
+    line-height: 85px;
+}
+.price-btn {
+    background-image: url('../images/price.png');
+    background-size: 85px 85px;
+    cursor: pointer;
+}
+.price-btn:hover {
+    border: 2px solid red;
+    margin: 4px;
+}
+.settings-panel {
+    width: 6px;
+    height: 40px;
+    background-color: #ddd;
+    color: #323232;
+    position: absolute;
+    z-index: 10;
+    top: 15px;
+    left: 0;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #aaa;
+    border-left: 0;
+    cursor: pointer;
+}
+
+.settings-panel:hover {
+    width: 40px;
+}
+
+.settings-btn {
+    width: 30px;
+    height: 30px;
+    margin: 5px auto;
+    background-image: url('../images/gear.png');
+    background-size: 30px 30px;
+}
+
+.settings-panel:hover .settings-btn {
+    display: block;
+}
+
+.dialog {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    z-index: 100;
+    background-color: #ddd;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+.dialog h1 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.settings-dialog {
+    width: 400px;
+    height: 250px;
+}
+
+.footer {
+    font-size: 10px;
+    color: #888;
+    text-align: center;
+    margin: 10px;
+}

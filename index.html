@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=Abel|Concert+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+
+    <title>Premios | twitch.tv/la_lizeth</title>
+</head>
+<body>
+    <div id="main">
+        <div class="prices">
+            <h1>PREMIOS</h1>
+            <ol class="prices-list">
+                <li v-for="(price, index) in prices">{{ price }} <button class="delete-price-btn" v-on:click="deletePrice(index)">x</button></li>
+            </ol>
+
+            <div class="add-price">
+                <a href="" v-if="!showAddPrice" v-on:click="showAddPriceForm(true, $event)" class="add-price-link">+ Agregar premio</a>
+                <div v-if="showAddPrice">
+                    <label for="price">Premio:</label>
+                    <input type="text" ref="newPrice" id="newPrice" v-model="newPrice" v-on:keyup="onEnterNewPrice">
+                    <button class="btn" v-on:click="addPrice">Agregar</button>
+                    <button class="btn" v-on:click="showAddPriceForm(false, $event)">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="surprises">
+            <div v-for="n in totalSurprises" v-on:click="showPrice" class="surprise-btn price-btn js-btn-surprise"></div>
+        </div>
+
+        <div class="settings-panel">
+            <span class="settings-btn" v-on:click="onShowSettings(true)"></span>
+        </div>
+
+        <div class="settings-dialog dialog" v-if="showSettings">
+            <h1>Configuración</h1>
+            
+            <button v-on:click="onSaveSettings">Guardar</button>
+            <button v-on:click="onShowSettings(false)">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- <div class="footer">
+        <p>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></p>
+    </div> -->
+
+    <script src="js/app.js"></script>
+</body>
+</html>
