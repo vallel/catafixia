@@ -32,7 +32,9 @@
         </div>
         
         <div class="surprises">
-            <div v-for="n in totalSurprises" v-on:click="showPrice" class="surprise-btn price-btn js-btn-surprise"></div>
+            <div v-for="(index, surprise) in totalSurprises" v-on:click="showPrice" class="surprise-btn price-btn js-btn-surprise">
+                {{index}}
+            </div>
         </div>
 
         <div class="settings-panel">

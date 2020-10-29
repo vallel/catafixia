@@ -76,6 +76,7 @@ h1 {
     line-height: 85px;
 }
 .price-btn {
+    color: #000;
     background-image: url('../images/price.png');
     background-size: 85px 85px;
     cursor: pointer;
