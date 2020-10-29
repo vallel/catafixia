@@ -17,7 +17,7 @@
         <div class="prices">
             <h1>PREMIOS</h1>
             <ol class="prices-list">
-                <li v-for="(price, index) in prices">{{ price }} <button class="delete-price-btn" v-on:click="deletePrice(index)">x</button></li>
+                <li v-for="(price, index) in prices" v-bind:class="{ unique: price.isUnique, crossed: uniquePrices.includes(index+1) }">{{ price.name || price }} <button class="delete-price-btn" v-on:click="deletePrice(index)">x</button></li>
             </ol>
 
             <div class="add-price">
@@ -25,6 +25,7 @@
                 <div v-if="showAddPrice">
                     <label for="price">Premio:</label>
                     <input type="text" ref="newPrice" id="newPrice" v-model="newPrice" v-on:keyup="onEnterNewPrice">
+                    <div><input type="checkbox" id="unique-price" v-model="isUniquePrice" name="unique-price"/> Premio único</div>
                     <button class="btn" v-on:click="addPrice">Agregar</button>
                     <button class="btn" v-on:click="showAddPriceForm(false, $event)">Cancelar</button>
                 </div>

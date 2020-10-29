@@ -33,6 +33,12 @@ h1 {
 .prices-list li {
     width: 90%;
 }
+.unique {
+    font-weight: bold;
+}
+.crossed {
+    text-decoration: line-through;
+}
 .delete-price-btn {
     display: none;
     float: right;
@@ -74,6 +80,9 @@ h1 {
     float: left;
     text-align: center;
     line-height: 85px;
+}
+.surprise-btn.unique {
+    color: red;
 }
 .price-btn {
     color: #000;

@@ -5,7 +5,9 @@ const app = new Vue({
         prices: [],
         showAddPrice: false,
         newPrice: null,
-        showSettings: false
+        isUniquePrice: false,
+        showSettings: false,
+        uniquePrices: []
     },
     created: function() {
         if (localStorage.prices) {
@@ -18,11 +20,21 @@ const app = new Vue({
                 const button = event.target;
 
                 if (button.classList.contains('price-btn')) {
+                    let value = 0;
+                    while (value < 1) {
+                        value = Math.floor(Math.random() * (this.prices.length) + 1);
+                        const index = value - 1;
+                        if (this.prices[index].hasOwnProperty('isUnique') && this.prices[index].isUnique) {
+                            if (this.uniquePrices.includes(value)) {
+                                value = 0;
+                            } else {
+                                this.uniquePrices.push(value);
+                                button.classList.add('unique');
+                            }
+                        }
+                    }
+
                     button.classList.remove('price-btn');
-
-                    const rand = Math.random();
-                    const value = Math.round(rand * (this.prices.length - 1) + 1);
-
                     button.textContent = value;
                 }
             }
@@ -35,14 +47,21 @@ const app = new Vue({
             } else if (event.keyCode == 27) {
                 event.preventDefault();
                 this.newPrice = "";
+                this.isUniquePrice = false;
                 this.showAddPrice = false;
             }
         },
         addPrice: function() {
             if (this.newPrice) {
-                this.prices.push(this.newPrice);
+                const price = {
+                    name: this.newPrice,
+                    isUnique: this.isUniquePrice
+                };
+
+                this.prices.push(price);
                 localStorage.prices = JSON.stringify(this.prices);
                 this.newPrice = "";
+                this.isUniquePrice = false;
                 this.$refs.newPrice.focus();
             }
         },
